@@ -70,11 +70,11 @@ function ReceiptIssuer() {
     const handleDownloadPDF = () => {
         const element = document.getElementById('receipt-print-area');
         const opt = {
-            margin:       0.5,
-            filename:     `${receiptDetails.receiptNumber}.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            margin: 0.5,
+            filename: `${receiptDetails.receiptNumber}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
         };
         html2pdf().set(opt).from(element).save();
     };
@@ -82,7 +82,7 @@ function ReceiptIssuer() {
     return (
         <div className="receipt-container">
             <header className="receipt-header">
-                <img src="/alpha_abacus_logo.jpeg" alt="Alpha Abacus Logo" className="company-logo" />
+                <img src={`${process.env.PUBLIC_URL}/alpha_abacus_logo.jpeg`} alt="Alpha Abacus Logo" className="company-logo" />
                 <h1>Receipt Issuer</h1>
             </header>
 
@@ -139,9 +139,7 @@ function ReceiptIssuer() {
                         ></textarea>
                     </div>
 
-                    <p className="date-display">
-                        **Date of Issue:** {getCurrentDateTime()}
-                    </p>
+                    <p className="date-display">**Date of Issue:** {getCurrentDateTime()}</p>
                     <p className="issued-by">**Issued by:** {companyName}</p>
 
                     <button type="submit" className="submit-button">Issue Receipt</button>
@@ -153,7 +151,7 @@ function ReceiptIssuer() {
                     <h2>Generated Receipt</h2>
                     <div id="receipt-print-area" className="receipt-preview">
                         <div className="receipt-header-print">
-                            <img src="/alpha_abacus_logo.jpeg" alt="Alpha Abacus Logo" className="company-logo-print" />
+                            <img src={`${process.env.PUBLIC_URL}/alpha_abacus_logo.jpeg`} alt="Alpha Abacus Logo" className="company-logo-print" />
                             <div>
                                 <h3>{companyName}</h3>
                                 <p>{companyAddress}</p>
