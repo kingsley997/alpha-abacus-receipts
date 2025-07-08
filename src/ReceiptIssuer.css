@@ -1,0 +1,259 @@
+/* src/ReceiptIssuer.css */
+
+.receipt-container {
+    font-family: Arial, sans-serif;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.receipt-header {
+    display: flex;
+    flex-direction: column; /* Stack on smaller screens */
+    align-items: center;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.company-logo {
+    max-width: 150px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.receipt-header h1 {
+    color: #333;
+    font-size: 2em;
+    margin: 0;
+}
+
+.form-section, .receipt-display-section {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+}
+
+.form-section h2, .receipt-display-section h2 {
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 22px); /* Account for padding and border */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.date-display, .issued-by {
+    text-align: right;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 10px;
+}
+
+.submit-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #218838;
+}
+
+/* Receipt Preview Styling */
+.receipt-preview {
+    border: 1px dashed #a8a8a8;
+    padding: 20px;
+    background-color: #fff;
+    margin-top: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.receipt-header-print {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content */
+    margin-bottom: 15px;
+    text-align: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.company-logo-print {
+    max-width: 100px; /* Smaller for print/preview */
+    height: auto;
+    margin-right: 15px;
+    margin-bottom: 10px; /* Spacing for wrap */
+}
+
+.receipt-header-print h3 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.receipt-header-print p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.receipt-info p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+.receipt-info strong {
+    color: #333;
+}
+
+.receipt-footer-print {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9em;
+    color: #777;
+}
+
+.receipt-footer-print p {
+    margin: 5px 0;
+}
+
+.print-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.print-button:hover {
+    background-color: #0056b3;
+}
+
+/* Basic Responsiveness */
+@media (max-width: 768px) {
+    .receipt-container {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea,
+    .submit-button,
+    .print-button {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .receipt-header h1 {
+        font-size: 1.8em;
+    }
+
+    .receipt-header-print {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .company-logo-print {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .receipt-container {
+        padding: 10px;
+    }
+
+    .receipt-header h1 {
+        font-size: 1.5em;
+    }
+
+    .company-logo {
+        max-width: 120px;
+    }
+}
+
+
+/* Print-specific styles */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #fff; /* Ensure white background for print */
+    }
+    .receipt-container {
+        border: none;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+    }
+    .form-section, .receipt-display-section h2, .submit-button, .print-button,
+    .receipt-header .company-logo, .receipt-header h1 {
+        display: none; /* Hide UI elements not needed for print */
+    }
+    .receipt-preview {
+        border: none;
+        box-shadow: none;
+        padding: 20mm; /* A4-like padding */
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .receipt-header-print {
+        justify-content: space-between; /* Space out logo and details */
+        margin-bottom: 20px;
+        text-align: left; /* Align text left for print */
+    }
+    .company-logo-print {
+        max-width: 150px; /* Larger logo for print */
+        margin-right: 20px;
+    }
+    .receipt-header-print div {
+        text-align: right; /* Align contact details to the right */
+    }
+    .receipt-info {
+        font-size: 1.2em; /* Slightly larger text for readability */
+    }
+    .receipt-footer-print {
+        margin-top: 40px;
+    }
+}
